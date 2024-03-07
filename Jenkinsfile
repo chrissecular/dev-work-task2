@@ -1,6 +1,6 @@
 pipeline {
-   stages {
-    agent any
+   agent any
+   stages   {
     environment {
         DOCKER_USER = "chrissecular"
         MYSQL_ROOT_PASSWORD = "password123"
