@@ -1,10 +1,14 @@
 pipeline {
+   stage('Preparation') {
+    steps {
+        cleanWs()
+    }
+}
     agent any
     environment {
         DOCKER_USER = "chrissecular"
         MYSQL_ROOT_PASSWORD = "password123"
     }
-    
         }
         stage('Build and Push'){
             steps{
