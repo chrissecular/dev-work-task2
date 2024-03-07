@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_USER = "chrissecular"
-        MYSQL_ROOT_PASSWORD = credentials("MYSQL_ROOT_PASSWORD")
+        MYSQL_ROOT_PASSWORD = "password123"
     }
     stages{
         stage('Build and Push'){
