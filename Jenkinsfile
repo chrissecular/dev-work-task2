@@ -1,15 +1,11 @@
 pipeline {
-   stage('Preparation') {
-    steps {
-        cleanWs()
-    }
-}
+   stages {
     agent any
     environment {
         DOCKER_USER = "chrissecular"
         MYSQL_ROOT_PASSWORD = "password123"
     }
-        }
+        
         stage('Build and Push'){
             steps{
                 sh "docker build -t $DOCKER_USER/task2-db db"
@@ -33,7 +29,7 @@ pipeline {
                 sh "docker run -d --network task2 -p 80:80 --mount type=bind,source=\$(pwd)/nginx/nginx.conf,target=/etc/nginx/ngingx.conf nginx"
             }
         }
-    }
+   }
     post {
         always {
             sh "docker system prunce -f"
