@@ -1,11 +1,10 @@
 pipeline {
    agent any
-   stages   {
-    environment {
+   environment {
         DOCKER_USER = "chrissecular"
         MYSQL_ROOT_PASSWORD = "password123"
     }
-        
+   stages   {        
         stage('Build and Push'){
             steps{
                 sh "docker build -t $DOCKER_USER/task2-db db"
