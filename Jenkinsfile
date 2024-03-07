@@ -4,7 +4,13 @@ pipeline {
         DOCKER_USER = "chrissecular"
         MYSQL_ROOT_PASSWORD = "password123"
     }
+    
     stages{
+        stage('Cleanup'){
+            docker stop $(docker ps -q)
+            docker rm $(docker ps -aq)
+
+        }
         stage('Build and Push'){
             steps{
                 sh "docker build -t $DOCKER_USER/task2-db db"
