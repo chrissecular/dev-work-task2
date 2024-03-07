@@ -5,11 +5,6 @@ pipeline {
         MYSQL_ROOT_PASSWORD = "password123"
     }
     
-    stages{
-        stage('Cleanup'){
-            docker stop $(docker ps -q)
-            docker rm $(docker ps -aq)
-
         }
         stage('Build and Push'){
             steps{
